@@ -1,10 +1,9 @@
 package tnl.fibonacci
 
 import java.math.BigDecimal
-import kotlin.coroutines.experimental.buildSequence
 
 fun fibonacci(): Sequence<BigDecimal> {
-    return buildSequence {
+    return sequence {
         var prev2 = BigDecimal.ZERO
         var prev1 = BigDecimal.ONE
 

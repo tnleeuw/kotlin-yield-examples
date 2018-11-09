@@ -1,7 +1,5 @@
 package tnl.group
 
-import kotlin.coroutines.experimental.buildSequence
-
 class Group(val permissions: Iterable<String>, val memberOfGroups: Iterable<Group> = listOf())
 
 
@@ -20,7 +18,7 @@ fun Group.getAllPermissions2(): Set<String> {
 }
 
 private fun Group.permissionSequence(): Sequence<String> {
-    return buildSequence {
+    return sequence {
         yieldAll(permissions)
         memberOfGroups.forEach { group ->
             yieldAll(group.permissionSequence())
